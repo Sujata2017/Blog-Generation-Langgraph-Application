@@ -13,11 +13,17 @@ from langgraph.graph import MessageGraph
 from langgraph.prebuilt import ToolNode
 from langchain_core.tools import tool
 from langchain_core.runnables import RunnableConfig
+from langchain_groq import ChatGroq
 
 # Load environment variables
 load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-llm = ChatOpenAI(model="gpt-4", openai_api_key=api_key, temperature=0.7)
+
+api_key = os.getenv("GROQ_API_KEY")
+llm=ChatGroq(model="qwen-2.5-32b")
+
+
+#api_key = os.getenv("OPENAI_API_KEY")
+#llm = ChatOpenAI(model="gpt-4", openai_api_key=api_key, temperature=0.7)
 
 os.environ["LANGSMITH_API_KEY"]=os.getenv("LANGCHAIN_API_KEY")
 
